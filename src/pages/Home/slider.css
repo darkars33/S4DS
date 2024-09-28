@@ -1,0 +1,52 @@
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide2 {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 20px 0;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+}
+
+.logos:before {
+  left: 0;
+}
+
+.logos:after {
+  right: 0;
+}
+
+.logos-slide {
+  display: inline-block;
+  white-space: nowrap;
+  animation: 25s slide linear infinite;
+}
+
+.logos-slide2 {
+  display: inline-block;
+  white-space: nowrap;
+  animation: 25s slide2 linear infinite;
+}
