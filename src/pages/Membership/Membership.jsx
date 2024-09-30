@@ -1,10 +1,34 @@
 import React from "react";
 import { GoTriangleRight } from "react-icons/go";
 import { Link } from "react-router-dom";
+import Group1 from '../../assets/Membership/Group1.svg';
+import Group2 from '../../assets/Membership/Group2.svg';
+
+
+const PlansCards = ({title, indian, others}) => {
+  return (
+    <div className="w-[25rem] flex flex-col p-5 gap-2 border-4 border-[#FFDAD2] bg-white ">
+      <h1 className="text-[1.4rem] text-center font-normal">
+      {title}
+      </h1>
+      <div className="flex justify-around">
+        <div className="leading-tight">
+          <p><span className="text-[2.5rem] font-normal">₹{indian}</span>/year</p>
+          <p>for Indians</p>
+        </div>
+        <div className="leading-tight">
+          <p><span className="text-[2.5rem] font-normal">${others}</span>/year</p>
+          <p>for Others</p>
+        </div>
+      </div>
+      <Link to="/membership/general-registration" className="p-1 w-[100%] text-center bg-brand text-white">Start Today</Link>
+    </div>
+  )
+}
 
 const Membership = () => {
   return (
-    <div className="max-w-full p-4 flex flex-col items-center overflow-hidden">
+    <div className="max-w-full w-full p-4 flex flex-col items-center overflow-hidden">
       <div className="w-screen flex justify-center flex-col">
         <div className="p-10 flex justify-center">
           <div className="w-[90%]">
@@ -24,10 +48,9 @@ const Membership = () => {
 
         <div className="pt-24 p-10 flex justify-center  bg-background">
           <div className="w-[90%] flex flex-col gap-3">
-            <div className=" flex flex-row space-between gap-24">
-              <div className="w-[30%]">
+            <div className="w-[100%] flex flex-wrap justify-between md:gap-10 md:justify-center items-center">
+              <div className="w-[25rem]">
                 <h1 className="text-[2.5rem] font-normal pb-3">Benefits</h1>
-
                 <div>
                   The following sutras provide a philosophical and
                   methodological foundation for the practice of data science
@@ -36,10 +59,9 @@ const Membership = () => {
                   analysis, ethical responsibility, and continuous learning.
                 </div>
               </div>
-              <div className="w-[70%] flex flex-row gap-3">
-                <div className="size-full flex flex-col p-5 gap-2 bg-accent-color2 text-white ">
+              <div className="w-[25rem] flex flex-col p-5 gap-2 bg-accent-color2 text-white ">
                   <img
-                    src={"../../../assets/react.svg"}
+                    src={Group1}
                     className=" w-10 h-10"
                   />
                   <h1 className="text-[1.4rem] font-normal">
@@ -72,9 +94,9 @@ const Membership = () => {
                     </p>
                   </div>
                 </div>
-                <div className="size-full flex flex-col p-5 gap-2 bg-[#FFDAD2] ">
+                <div className="w-[25rem] flex flex-col p-5 gap-2 bg-[#FFDAD2] ">
                   <img
-                    src={"../../../assets/react.svg"}
+                    src={Group2}
                     className=" w-10 h-10"
                   />
                   <h1 className="text-[1.4rem] font-normal">
@@ -107,11 +129,10 @@ const Membership = () => {
                     </p>
                   </div>
                 </div>
-              </div>
             </div>
-            <div className="w-[68%] flex flex-row gap-3">
+            <div className="w-[68%] flex flex-row gap-3 mt-10 md:w-[100%]">
               <div className="size-full flex flex-col p-5 gap-2 border-4 border-[#FFDAD2] bg-white ">
-                <img src={"../../../assets/react.svg"} className=" w-10 h-10" />
+                <img src={Group2} className=" w-10 h-10" />
                 <h1 className="text-[1.4rem] font-normal">
                   Learning and Development
                 </h1>
@@ -144,56 +165,13 @@ const Membership = () => {
           </div>
         </div>
       </div>
-      <div className="pt-24 p-10 flex justify-center">
-        <div className="w-[90%]">
-          <h1 className="text-[2.5rem] font-normal pb-3">
-            Our Membership Plans
-          </h1>
-          <div className="w-[100%] flex flex-row justify-between gap-3">
-            <div className="size-full flex flex-col p-5 gap-2 border-4 border-[#FFDAD2] bg-white ">
-              <h1 className="text-[1.2rem] font-normal">
-                Academic Professional Member
-              </h1>
-              <div className="flex">
-                <GoTriangleRight className="text-brand flex-shrink-0 mt-1" />
-                <p className="text-justify">
-                  Free access to quarterly newsletters with cutting-edge
-                  updates.
-                </p>
-              </div>
-              <Link
-                to="/membership/registration"
-                className="p-2 text-white font-normal text-center bg-brand text-[1rem] px-4 hover:bg-accent-color hover:text-text-color"
-              >
-                Start Today
-              </Link>
-            </div>
-            <div className="size-full flex flex-col p-5 gap-2 border-4 border-[#FFDAD2] bg-white ">
-              <img src={"../../../assets/react.svg"} className=" w-10 h-10" />
-              <h1 className="text-[1.4rem] font-normal">
-                Learning and Development
-              </h1>
-              <div className="flex">
-                <GoTriangleRight className="text-brand flex-shrink-0 mt-1" />
-                <p className="text-justify">
-                  Free access to quarterly newsletters with cutting-edge
-                  updates.
-                </p>
-              </div>
-            </div>
-            <div className="size-full flex flex-col p-5 gap-2 border-4 border-[#FFDAD2] bg-white ">
-              <img src={"../../../assets/react.svg"} className=" w-10 h-10" />
-              <h1 className="text-[1.4rem] font-normal">
-                Learning and Development
-              </h1>
-              <div className="flex">
-                <GoTriangleRight className="text-brand flex-shrink-0 mt-1" />
-                <p className="text-justify">
-                  Free access to quarterly newsletters with cutting-edge
-                  updates.
-                </p>
-              </div>
-            </div>
+      <div className="w-screen flex justify-center">
+        <div className="w-[90%] p-10">
+          <h1 className="text-[2.5rem] font-normal pb-3">Our Membership Plans</h1>
+          <div className="flex gap-10 flex-wrap justify-center">
+            <PlansCards title="Academic Professional Member" indian="3,600" others="100"  />
+            <PlansCards title="Corporate Professional Member" indian="4,200" others="120" />
+            <PlansCards title="Students" indian="500" others="15" />
           </div>
         </div>
       </div>

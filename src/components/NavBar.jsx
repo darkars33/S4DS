@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const [showMemberShip, setShowMemberShip] = useState(false);
 
   window.addEventListener('click', (e) => {
     if (e.target.tagName !== 'LI') {
@@ -17,6 +18,7 @@ const NavBar = () => {
   const location = useLocation().pathname;
 
   const isAboutUs = location.includes("/about-us");
+  const isMembership = location.includes("/membership");
 
 
   return (
@@ -91,34 +93,55 @@ const NavBar = () => {
               )}
             </li>
             <NavLink
-              to="/s4ds"
+              to="/focus-area"
               className="text-lg hover:underline cursor-pointer"
             >
-              S4DS
+              Focus
             </NavLink>
             <NavLink
-              to="/our-drive"
+              to="/events"
               className="text-lg hover:underline cursor-pointer"
             >
-              Our Drive
+              Events 
             </NavLink>
-            <NavLink
-              to="/membership"
-              className="text-lg hover:underline cursor-pointer"
+            <li
+
+              className={`relative text-lg hover:underline cursor-pointer ${isMembership && "underline font-normal"}`}
+              onMouseMove={() => setShowMemberShip(true)}
+            
             >
               Membership
-            </NavLink>
+              {showMemberShip && (
+                <div className="absolute p-3 w-[200px] bg-white top-10 left-0 shadow-md">
+                  <ul className="flex flex-col gap-2">
+                    <NavLink
+                      to="/about-membership"
+                      className="hover:underline cursor-pointer"
+                      onClick={() => setShowMemberShip(false)}
+                    >
+                      About Membership
+                    </NavLink>
+                    <NavLink
+                      to="/membership/general-registration"
+                      className="hover:underline cursor-pointer"
+                      onClick={() => setShowMemberShip(false)}
+                    >
+                      General
+                    </NavLink>
+
+                    <NavLink to='/membership/student-registration' className="hover:underline cursor-pointer" onClick={() => setShowMemberShip(false)} >
+                      Student
+                    </NavLink>
+                   
+                  </ul>
+                </div>
+              )}
+            </li>
             <NavLink
-              to="/awards"
+              to="/resources"
               className="text-lg hover:underline cursor-pointer"
             >
-              Awards
-            </NavLink>
-            <NavLink
-              to="/icdmai"
-              className="text-lg hover:underline cursor-pointer"
-            >
-              ICDMAI
+              Resources
             </NavLink>
           </ul>
           <button className="p-2 px-12 lg:px-8 bg-brand text-white">
@@ -199,18 +222,18 @@ const NavBar = () => {
                 )}
               </li>
               <NavLink
-                to="/s4ds"
+                to="/focus-area"
                 className="text-xl hover:underline cursor-pointer"
                 onClick={() => setIsOpen(false)}
               >
-                S4DS
+                Focus
               </NavLink>
               <NavLink
-                to="/our-drive"
+                to="/events"
                 className="text-xl  hover:underline cursor-pointer"
                 onClick={() => setIsOpen(false)}
               >
-                Our Drive
+                Events 
               </NavLink>
               <NavLink
                 to="/membership"
@@ -220,18 +243,11 @@ const NavBar = () => {
                 Membership
               </NavLink>
               <NavLink
-                to="/awards"
+                to="/resources"
                 className="text-xl  hover:underline cursor-pointer"
                 onClick={() => setIsOpen(false)}
               >
-                Awards
-              </NavLink>
-              <NavLink
-                to="/icdmai"
-                className="text-xl  hover:underline cursor-pointer"
-                onClick={() => setIsOpen(false)}
-              >
-                ICDMAI
+                Resources
               </NavLink>
             </ul>
             <button className="p-2 px-5 bg-brand text-white">Join Us</button>
